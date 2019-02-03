@@ -9,6 +9,7 @@
       @foreach($genres as $genre)
         <tr>
           <th>
+            <a class="btn btn-primary" href="/genres/{{$genre->GenreId}}/edit">Edit</a>
             <a href="tracks?genre={{$genre->Name}}">{{$genre->Name}}</a>
           </th>
         </tr>

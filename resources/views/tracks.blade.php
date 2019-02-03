@@ -3,6 +3,7 @@
 @section('title', 'Tracks')
 
 @section('main')
+<a class="btn btn-primary" href="/tracks/new">Add Track</a>
 <table class="table">
       <tr>
         <th>
@@ -15,6 +16,7 @@
         <th>Artist Name</th>
         <th>Unit Price</th>
       </tr>
+
       @foreach($tracks as $track)
         <tr>
           <td>

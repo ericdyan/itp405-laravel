@@ -9,12 +9,33 @@
   <nav class="navbar navbar-expand-md">
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link navbar-brand" href="/genres">Genres</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand" href="/tracks">Tracks</a>
-        </li>
+        @if (Auth::check())
+          <li class="nav-item">
+            <a href="/profile" class="nav-link navbar-brand">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="/invoices" class="nav-link navbar-brand">Invoices</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-brand" href="/genres">Genres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-brand" href="/tracks">Tracks</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link navbar-brand">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a href="/settings" class="nav-link navbar-brand">Settings</a>
+          </li>
+        @else
+          <li class="nav-item">
+            <a href="/login" class="nav-link navbar-brand">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="/signup" class="nav-link navbar-brand">Sign Up</a>
+          </li>
+        @endif
       </ul>
     </div>
   </nav>

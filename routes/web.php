@@ -7,6 +7,7 @@ Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 Route::get('/logout', 'LoginController@logout');
 Route::get('/maintenance', 'AdminController@maintenance');
+Route::get('/docs', 'DocsController@index');
 
 Route::middleware(['authenticated'])->group(function() {
   Route::get('/profile', 'AdminController@index');

@@ -12,7 +12,9 @@ connection.onerror = () => {
 connection.onmessage = (event) => {
   console.log('received message', event.data);
   document.querySelector('div').innerHTML = event.data;
-
+  const range = window.getSelection();
+  range.selectAllChildren(div);
+  range.collapseToEnd();
 };
 
 document.querySelector('div').addEventListener('keyup', (event) => {
@@ -21,5 +23,4 @@ document.querySelector('div').addEventListener('keyup', (event) => {
   let message = document.querySelector('div').innerHTML;
   connection.send(message);
   console.log(message);
-  document.querySelector('div').innerHTML = "";
 });

@@ -1,5 +1,6 @@
 // Create connectiom to WebSocket
-let connection = new WebSocket('wss://websockets-lab4.herokuapp.com');
+// websockets-lab4.herokuapp.com
+let connection = new WebSocket('ws://localhost:8080');
 
 connection.onopen = () => {
   console.log('connected from the front end');
@@ -11,16 +12,18 @@ connection.onerror = () => {
 
 connection.onmessage = (event) => {
   console.log('received message', event.data);
-  document.querySelector('div').innerHTML = event.data;
+  document.getElementById('doc').innerHTML = event.data;
   const range = window.getSelection();
+  let div = document.getElementById('doc');
   range.selectAllChildren(div);
   range.collapseToEnd();
 };
 
-document.querySelector('div').addEventListener('keyup', (event) => {
+document.getElementById('doc').addEventListener('keyup', (event) => {
   event.preventDefault();
+  console.log('hi');
 
-  let message = document.querySelector('div').innerHTML;
+  let message = document.getElementById('doc').innerHTML;
   connection.send(message);
   console.log(message);
 });

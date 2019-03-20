@@ -1,6 +1,6 @@
 // Create connectiom to WebSocket
-// websockets-lab4.herokuapp.com
-let connection = new WebSocket('ws://localhost:8080');
+//
+let connection = new WebSocket('wss://websockets-lab4.herokuapp.com');
 
 connection.onopen = () => {
   console.log('connected from the front end');
